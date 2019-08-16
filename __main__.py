@@ -46,35 +46,33 @@ autoencoder.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accu
 autoencoder.fit(x_train, x_train, epochs=5, batch_size=32, verbose=1)
 
 if EVALUATE:
-    score, accuracy = autoencoder.evaluate(x_test, x_test)
-    print('Test score:', score)
-    print('Test accuracy:', accuracy)
-
+	score, accuracy = autoencoder.evaluate(x_test, x_test)
+	print('Test score:', score)
+	print('Test accuracy:', accuracy)
 
 if PREDICT:
-    reconstructed = autoencoder.predict(x_test)
+	reconstructed = autoencoder.predict(x_test)
 
-    # Reshape datasets from (_, 784) to (_, 28, 28)
-    reconstructed = reconstructed.reshape(x_test.shape[0], input_shape[0], input_shape[1])
-    actual = x_test.reshape(x_test.shape[0], input_shape[0], input_shape[1])
+	# Reshape datasets from (_, 784) to (_, 28, 28)
+	reconstructed = reconstructed.reshape(x_test.shape[0], input_shape[0], input_shape[1])
+	actual = x_test.reshape(x_test.shape[0], input_shape[0], input_shape[1])
 
-    NUMBER_SHOWN_OF_PREDICTIONS = 4
+	NUMBER_SHOWN_OF_PREDICTIONS = 4
 
-    for i in range(NUMBER_SHOWN_OF_PREDICTIONS):
+	# Show a number of predictions
+	for i in range(NUMBER_SHOWN_OF_PREDICTIONS):
+		# Generate random index
+		rand_i = random.randrange(0, x_test.shape[0])
 
-        # Generate random index
-        rand_i = random.randrange(0, x_test.shape[0])
+		print('')
 
-        print('')
+		# Print actual label
+		print('The label is %d' % y_test[rand_i])
 
-        # Print actual label
-        print('The label is %d' % y_test[rand_i])
+		# Show actual image
+		plt.imshow(actual[rand_i], cmap='Greys')
+		plt.show()
 
-        # Show actual image
-        plt.imshow(actual[rand_i], cmap='Greys')
-        plt.show()
-
-        # Show reconstructed image
-        plt.imshow(reconstructed[rand_i], cmap='Greys')
-        plt.show()
-
+		# Show reconstructed image
+		plt.imshow(reconstructed[rand_i], cmap='Greys')
+		plt.show()
