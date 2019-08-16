@@ -69,9 +69,10 @@ code_3 = (Dense(CODE_SIZE, activation='relu'))(hidden_3)
 # Autoencoder 2.
 hidden_4 = Dense(HIDDEN_SIZE, activation='relu')(code_3)
 code_4 = (Dense(CODE_SIZE, activation='relu'))(hidden_4)
+hidden_5 = Dense(HIDDEN_SIZE, activation='relu')(code_4)
 
 # Output layer (Reconstructed image, siz=748)
-output_img = Dense(input_size, activation='sigmoid')(code_4)
+output_img = Dense(input_size, activation='sigmoid')(hidden_5)
 
 autoencoder = Model(input_img, output_img)
 
