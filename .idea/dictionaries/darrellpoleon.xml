@@ -1,15 +1,23 @@
 <component name="ProjectDictionaryState">
   <dictionary name="darrellpoleon">
     <words>
+      <w>adadelta</w>
       <w>amsgrad</w>
+      <w>audusd</w>
       <w>autocoder</w>
       <w>autoencoder</w>
       <w>crossentropy</w>
-      <w>dataset</w>
-      <w>logdir</w>
+      <w>eurusd</w>
+      <w>gbpusd</w>
+      <w>intraday</w>
+      <w>mape</w>
       <w>mnist</w>
       <w>relu</w>
+      <w>scaler</w>
       <w>tensorboard</w>
+      <w>tensorflow</w>
+      <w>uqbaf</w>
+      <w>usdjpy</w>
     </words>
   </dictionary>
 </component>
